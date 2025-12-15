@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser Data Cleaner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      width: 400px;
+      padding: 1rem;
+      background-color: #f8fafc;
+      color: #334155;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .search-sort-container {
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    #searchInput, #sortSelect {
+      flex-grow: 1;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+    }
+    #sortSelect {
+      flex-grow: 0;
+    }
+    #siteList {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      background-color: white;
+    }
+    #siteList li {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.2s ease-in-out;
+    }
+    #siteList li:last-child {
+      border-bottom: none;
+    }
+    #siteList li:hover {
+      background-color: #f1f5f9;
+    }
+    .site-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      overflow: hidden;
+    }
+    .site-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .site-count {
+      font-size: 0.8rem;
+      color: #64748b;
+      background-color: #e2e8f0;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+    }
+    .clear-button, #loader {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    }
+    .clear-button:hover {
+      background-color: #2563eb;
+    }
+    .clear-button:active {
+      transform: scale(0.98);
+    }
+    #messageBox {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #64748b;
+      background-color: #e2e8f0;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+    }
+    #loader {
+      text-align: center;
+      background-color: #94a3b8;
+      cursor: not-allowed;
+    }
+    #loader.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Browser Data Cleaner</h1>
+  <div class="controls">
+    <div class="search-sort-container">
+      <input type="text" id="searchInput" placeholder="Search sites...">
+      <select id="sortSelect">
+        <option value="visitCount" selected>Most Visited</option>
+        <option value="zeroVisits">Only Show 0 Visits</option>
+        <option value="cookieCount">Sort by Cookie Count</option>
+      </select>
+    </div>
+    <label for="selectAll">
+      <input type="checkbox" id="selectAll" checked> Select All
+    </label>
+    <label for="clearCookiesCheckbox">
+      <input type="checkbox" id="clearCookiesCheckbox" checked> Also Clear Cookies
+    </label>
+  </div>
+  <div id="loadingIndicator" style="font-size: 0.8rem; color: #64748b; display: none;">Loading...</div>
+  <ul id="siteList"></ul>
+  <button id="clearButton" class="clear-button">Clear Selected Data</button>
+  <div id="messageBox" style="display: none;"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
