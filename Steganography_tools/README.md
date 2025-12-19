@@ -3,7 +3,7 @@ self-learning purpose
 # img_steg.py
 A simple command-line tool that hides and extracts **text messages** inside **PNG images** using **Least Significant Bit (LSB) steganography** approach. It hides information leveraging all 3 channels of RGB. The tool works with both **RGB** and **RGBA** PNG images and preserves image appearance and transparency.
 
-usage: img_steg.py [-h] -i INPUT {encode,decode} 
+usage: img_steg.py [-h] -i INPUT {encode,decode} \n
 options: 
 -h, --help show this help message and exit 
 -i, --input INPUT Input File - PNG image 
