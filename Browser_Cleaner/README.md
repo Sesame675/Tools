@@ -12,5 +12,5 @@ visited first-party sites.
 4. Click **Load unpacked** and select the project directory
 
 ## Demo 
-![Demo Screenshot](images/demo%20-%201.png)
-![Demo Screenshot](images/demo%20-%202.png)
+<img src="images/demo%20-%201.png" width="400">
+<img src="images/demo%20-%202.png" width="400">
