@@ -10,3 +10,7 @@ visited first-party sites.
 2. Open Chrome and navigate to `chrome://extensions`
 3. Enable **Developer mode**
 4. Click **Load unpacked** and select the project directory
+
+## Demo 
+![Demo Screenshot](images/demo - 1.png)
+![Demo Screenshot](images/demo - 2.png)
